@@ -33,7 +33,7 @@ int main()
         heapify(inparr, n, i);
     }
     
-    for(int i=1;i<n;i++){
+    for(int i=1;i<=n;i++){
         cout<<inparr[i]<<" ";
     }
     cout<<endl;
