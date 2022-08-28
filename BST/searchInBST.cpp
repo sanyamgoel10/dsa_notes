@@ -62,19 +62,23 @@ void createBST(Node* &root, vector<int>& inputForBST){
 }
 
 bool searchInBST(Node* root, int x){
+    //take a temp variable to iterate over the bst
     Node* temp = root;
     
     if(temp == NULL){
-        //could not find x in tree
+        //could not find x in tree and reached end of tree
         return false;
     }
     if(temp->val==x){
+        // x found in tree, hence return
         return true;
     }
     if(x < temp->val){
+        //recursively find x in left subtree of root
         return searchInBST(temp->left, x);
     }
     else{
+        //recursively find x in right subtree of root
         return searchInBST(temp->right, x);
     }
 }
