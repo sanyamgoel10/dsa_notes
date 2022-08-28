@@ -61,40 +61,6 @@ void createBST(Node* &root, vector<int>& inputForBST){
     }
 }
 
-bool searchInBST(Node* root, int x){
-    Node* temp = root;
-    
-    if(temp == NULL){
-        //could not find x in tree
-        return false;
-    }
-    if(temp->val==x){
-        return true;
-    }
-    if(x < temp->val){
-        return searchInBST(temp->left, x);
-    }
-    else{
-        return searchInBST(temp->right, x);
-    }
-}
-
-bool searchIterative(Node* root, int x){
-    Node* temp = root;
-    while(temp){
-        if(x == temp->val){
-            return true;
-        }
-        else if(x < temp->val){
-            temp = temp->left;
-        }
-        else{
-            temp = temp->right;
-        }
-    }
-    return false;
-}
-
 Node* minValueInBST(Node* root){
     Node* temp = root;
     while(temp->left!=NULL){
