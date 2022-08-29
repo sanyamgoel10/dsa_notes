@@ -117,20 +117,13 @@ Node* insertIntoBST(Node* root, int data){
     return root;
 }
 
-void createBST(Node* &root, vector<int>& inputForBST){
-    int data;
-    cin>>data;
-    while(data != -1){
-        root = insertIntoBST(root, data);
-        cin>>data;
-    }
-}
-
 int main()
 {
     Node* root = NULL;
-    vector<int> inputForBST = {10,5,21,-1};
-    createBST(root,inputForBST);
+    vector<int> inputForBST = {10, 8, 21, 7, 27, 5, 4, 3, -1};
+    for(auto x : inputForBST){
+        root = insertIntoBST(root, x);
+    }
     // 10 8 21 7 27 5 4 3 -1
     
     vector<int> pre,in,post,level;
