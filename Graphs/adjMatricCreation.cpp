@@ -1,44 +1,42 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-// Adjacency Matrix representation of graph
-
-int main()
-{
-    int n; //number of nodes
-    int m; //number of edges
+int main() {
+    // ADJACENCY MATRIX GRAPH CREATION
+    int n = 5;  //number of vertices
+    int m = 7;  //number of edges
     
-    cout<<"Enter number of nodes : ";
-    cin>>n;
-    cout<<"Enter number of edges : ";
-    cin>>m;
+    //vector containing edges between nodes
+    //edges.size() = m
+    vector<pair<int,int>> edges = {{1,2},{1,5},{1,3},{5,3},{2,3},{2,4},{3,4}};
     
-    //creating a graph with n nodes
-    vector<vector<int>> adj(n+1, vector<int>(n+1));
+    //adjacency matrix
+    vector<vector<int>> adjMatrix(n+1, vector<int>(n+1, 0));
     
-    int d;
-    cout<<"Enter directed or undirected as 1 or 0 : ";
-    cin>>d;
-    for(int i=0;i<m;i++){
-        int u, v;
-        cin>>u>>v;
+    //directed or undirected graph
+    int d = 0;  // 0->undirected, 1-directed
+    
+    for(auto x : edges){
+        int u = x.first;    // 1st node
+        int v = x.second;   // 2nd node
         
-        adj[u][v] = 1;
         if(d==0){
-            adj[v][u] = 1;
+            adjMatrix[u][v] = 1;
+            adjMatrix[v][u] = 1;
+        }
+        else{
+            adjMatrix[u][v] = 1;
         }
     }
     
-    //printing the graph
+    // PRINTING THE GRAPH
     for(int i=0;i<n;i++){
         cout<<i<<" -> ";
         for(int j=0;j<n;j++){
-            if(adj[i][j]!=0){
-                cout<<j<<" ";
+            if(adjMatrix[i][j] == 1){
+                cout<<j<<", ";
             }
         }
         cout<<endl;
     }
-
-    return 0;
 }
