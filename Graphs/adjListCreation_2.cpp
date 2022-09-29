@@ -13,6 +13,9 @@ int main() {
     //adjacency list
     unordered_map<int,vector<int>> adjList;
     
+    // //another method to create an adjacency list
+    // vector<int> adjList[n+1];
+    
     //directed or undirected graph
     int d = 0;  // 0->undirected, 1-directed
     
